@@ -216,7 +216,7 @@ namespace ProjectContextSwitcher
                     continue;
                 labelStyle.fontSize = 15;
                 EditorGUILayout.LabelField(GetSwitchHandlerData(switchHandler.GetType()).Label, labelStyle);
-                Editor.CreateEditor(switchHandler).OnInspectorGUI();
+                DrawUnityObject(switchHandler);
                 GUILayout.Space(VerticalSpacing);
             }
         }
@@ -249,5 +249,13 @@ namespace ProjectContextSwitcher
                 .ToArray();
         }
         private static SwithHandlerData GetSwitchHandlerData(Type type) => _switchHanlers.Where(data => data.Type == type).First();
+        private static void DrawUnityObject(UnityEngine.Object obj)
+        {
+#if ODIN_INSPECTOR
+            Sirenix.OdinInspector.Editor.OdinEditor.CreateEditor(obj).OnInspectorGUI();
+#else
+            Editor.CreateEditor(obj).OnInspectorGUI();
+#endif
+        }
     }
 }
