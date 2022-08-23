@@ -210,15 +210,9 @@ namespace ProjectContextSwitcher
 
             var switchHandlers = projectContext.SwitchHandlers;
             foreach (var switchHandler in switchHandlers)
-            {
-                if (switchHandler == null)
-                    //TODO: clear context
-                    continue;
-                labelStyle.fontSize = 15;
-                EditorGUILayout.LabelField(GetSwitchHandlerData(switchHandler.GetType()).Label, labelStyle);
-                DrawUnityObject(switchHandler);
-                GUILayout.Space(VerticalSpacing);
-            }
+                if (switchHandler != null)
+                    DrawHandler(switchHandler, labelStyle);
+            //TODO: if switch handler == null -> clear context
         }
         private static void SaveProjectSettingAsset(in ProjectContextsSettings projectContextsSettings)
         {
@@ -249,10 +243,23 @@ namespace ProjectContextSwitcher
                 .ToArray();
         }
         private static SwithHandlerData GetSwitchHandlerData(Type type) => _switchHanlers.Where(data => data.Type == type).First();
+        private static void DrawHandler(ContextSwitchHandler handler, GUIStyle labelStyle)
+        {
+            labelStyle.fontSize = 15;
+            var handlerLabel = GetSwitchHandlerData(handler.GetType()).Label;
+#if ODIN_INSPECTOR
+            if(GUILayout.Button(handlerLabel, GUILayout.ExpandWidth(false)))
+                Sirenix.OdinInspector.Editor.OdinEditorWindow.InspectObject(handler);
+#else
+            EditorGUILayout.LabelField(handlerLabel, labelStyle);
+            Editor.CreateEditor(handler).OnInspectorGUI();
+#endif
+            GUILayout.Space(VerticalSpacing);
+        }
         private static void DrawUnityObject(UnityEngine.Object obj)
         {
 #if ODIN_INSPECTOR
-            Sirenix.OdinInspector.Editor.OdinEditor.CreateEditor(obj).OnInspectorGUI();
+            Sirenix.OdinInspector.Editor.OdinEditorWindow.InspectObject(obj);
 #else
             Editor.CreateEditor(obj).OnInspectorGUI();
 #endif
