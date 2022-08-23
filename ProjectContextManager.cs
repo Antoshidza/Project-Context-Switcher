@@ -5,7 +5,7 @@ namespace ProjectContextSwitcher
 {
     public class ProjectContextManager : ScriptableObject
     {
-        [SerializeField] private List<ProjectContext> _projectContexts;
+        [SerializeField] private List<ProjectContext> _projectContexts = new List<ProjectContext>();
         [SerializeField][HideInInspector] private ProjectContext _activatedProjectContext;
 
         public IReadOnlyCollection<ProjectContext> ProjectContexts => _projectContexts;

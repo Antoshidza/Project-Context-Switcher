@@ -127,7 +127,7 @@ namespace ProjectContextSwitcher
             _newContextName = EditorGUILayout.TextField("Create Context", _newContextName, GUILayout.ExpandWidth(true));
             if (_newContextName != string.Empty)
             {
-                if (projectContexts.Where(projectContext => projectContext.Name == _newContextName).Count() != 0)
+                if (projectContexts.Where(projectContext => projectContext != null && projectContext.Name == _newContextName).Count() != 0)
                     EditorGUILayout.HelpBox("There is already one context with this name, please, use unique name", MessageType.Error);
                 else if (GUILayout.Button("Create", GUILayout.ExpandWidth(false)))
                 {
@@ -170,7 +170,6 @@ namespace ProjectContextSwitcher
                     _projectContextManager.SwitchTo(i);
                     EditorUtility.SetDirty(_projectContextManager);
                     AssetDatabase.SaveAssets();
-                    //AssetDatabase.Refresh();
                 }
 
                 GUI.skin.label.normal.textColor = _projectContextManager.IsCurrent(projectContext) ? Color.green : Color.white;
