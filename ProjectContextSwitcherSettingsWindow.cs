@@ -85,6 +85,8 @@ namespace ProjectContextSwitcher
                 return false;
             }
 
+            var lastProjectContextManager = _projectContextManager;
+
             if (_projectContextManager == null)
             {
                 GUILayout.BeginHorizontal();
@@ -108,6 +110,14 @@ namespace ProjectContextSwitcher
             }
 
             _projectContextManager = EditorGUILayout.ObjectField("Context Manager", _projectContextManager, typeof(ProjectContextManager), false) as ProjectContextManager;
+
+            if (_projectContextManager != lastProjectContextManager)
+            {
+                if (!TryGetProjectSettingsAsset(out var projectContextsSettings))
+                    projectContextsSettings = new ProjectContextsSettings();
+                projectContextsSettings.ManagerAssetGUID = AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(_projectContextManager));
+                SaveProjectSettingAsset(projectContextsSettings);
+            }
 
             return _projectContextManager != null;
         }
