@@ -247,21 +247,15 @@ namespace ProjectContextSwitcher
         {
             labelStyle.fontSize = 15;
             var handlerLabel = GetSwitchHandlerData(handler.GetType()).Label;
+            //by some reason when OdinInspector is in project Editor/OdinEditor .CreateEditor(UnityEngine.Object).OnInspectorGUI() draws nothing
+            //so in that case we'll just draw buttons instead of full serialization and call OdinEditorWindow.InspectObject(object) on click
 #if ODIN_INSPECTOR
             if(GUILayout.Button(handlerLabel, GUILayout.ExpandWidth(false)))
                 Sirenix.OdinInspector.Editor.OdinEditorWindow.InspectObject(handler);
 #else
             EditorGUILayout.LabelField(handlerLabel, labelStyle);
             Editor.CreateEditor(handler).OnInspectorGUI();
-#endif
             GUILayout.Space(VerticalSpacing);
-        }
-        private static void DrawUnityObject(UnityEngine.Object obj)
-        {
-#if ODIN_INSPECTOR
-            Sirenix.OdinInspector.Editor.OdinEditorWindow.InspectObject(obj);
-#else
-            Editor.CreateEditor(obj).OnInspectorGUI();
 #endif
         }
     }
