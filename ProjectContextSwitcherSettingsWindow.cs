@@ -154,8 +154,11 @@ namespace ProjectContextSwitcher
             foreach (var projectContext in projectContexts)
             {
                 if (projectContext == null)
+                {
+                    i++;
                     //TODO: clear manager
                     continue;
+                }
 
                 GUILayout.BeginHorizontal();
                 if (GUILayout.Button("x", GUILayout.ExpandWidth(false)) && EditorUtility.DisplayDialog($"Delete {projectContext.Name}", "Are you sure you want delete this context?", "confirm", "cancel"))
