@@ -52,6 +52,9 @@ namespace ProjectContextSwitcher
 
                     var projectContexts = _projectContextManager.ProjectContexts;
 
+                    if (projectContexts == null)
+                        return;
+
                     DrawContextCreateField(projectContexts);
 
                     GUILayout.Space(VerticalSpacing);
