@@ -1,6 +1,6 @@
 {
-  "name": "com.tonymax.project-contex-switcher",
-  "version": "0.0.1",
+  "name": "com.tonymax.pcw",
+  "version": "0.0.2",
   "displayName": "Project Context Switcher",
   "description": "Editor tool which provides you create a variety of project contexts with custom settings and switching between them",
   "unity": "2019.4",

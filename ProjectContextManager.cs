@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace ProjectContextSwitcher
 {
+    [CreateAssetMenu(menuName = "Project Context Switcher/Project Context Manager", fileName = "ProjectContextManager")]
     public class ProjectContextManager : ScriptableObject
     {
         [SerializeField] private List<ProjectContext> _projectContexts = new List<ProjectContext>();

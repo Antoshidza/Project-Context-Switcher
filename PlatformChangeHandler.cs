@@ -4,7 +4,7 @@ using UnityEngine;
 namespace ProjectContextSwitcher
 {
     [SwitchHandler(Label = "Platform Change", Order = int.MinValue)]
-    [CreateAssetMenu(menuName = "SciptingDefineSymbolsHandler", fileName = "NewSciptingDefineSymbolsHandler")]
+    [CreateAssetMenu(menuName = "Project Context Switcher/Platform Change Handler", fileName = "NewPlatformChangeHandler")]
     public class PlatformChangeHandler : ContextSwitchHandler
     {
         [SerializeField] private BuildTargetGroup _buildTargetGroup;

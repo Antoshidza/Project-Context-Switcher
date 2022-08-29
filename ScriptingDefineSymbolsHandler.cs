@@ -6,7 +6,7 @@ using UnityEngine;
 namespace ProjectContextSwitcher
 {
     [SwitchHandler(Label = "Scripting Define Symbols")]
-    [CreateAssetMenu(menuName = "SciptingDefineSymbolsHandler", fileName = "NewSciptingDefineSymbolsHandler")]
+    [CreateAssetMenu(menuName = "Project Context Switcher/Scipting Define Symbols Handler", fileName = "NewSciptingDefineSymbolsHandler")]
     public class ScriptingDefineSymbolsHandler : ContextSwitchHandler
     {
         [SerializeField] private string[] _symbols;
