@@ -1,41 +1,43 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="ProjectContextWindowUSS.uss" />
-    <ui:VisualElement style="padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;">
-        <ui:Label text="Project Contexts" style="font-size: 16px; -unity-font-style: bold; margin-bottom: 10px;" />
-        <ui:VisualElement name="SettingsDataExistsPanel" style="align-items: center; display: flex; visibility: visible; overflow: visible; opacity: 1;">
-            <ui:Label text="There is no context data in project for now" style="-unity-text-align: upper-center;" />
-            <ui:Button text="create new" name="CreateNewSettingsDataButton" style="flex-wrap: wrap-reverse; width: auto; align-items: stretch;" />
-        </ui:VisualElement>
-        <ui:VisualElement name="ContextManagerExistsPanel" style="align-items: center; display: flex; visibility: visible; overflow: visible; opacity: 1;">
-            <ui:Label text="You need to assign Project Context Manager to start edit/switch contexts. Chose from project or create one" style="-unity-text-align: upper-center; white-space: normal;" />
-            <uie:ObjectField label="Context Manager" allow-scene-objects="false" name="ContextManagerField" style="overflow: hidden; flex-wrap: nowrap;" />
-            <ui:Button text="create new" name="CreateNewSettingsDataButton" style="flex-wrap: wrap-reverse; width: auto; align-items: stretch;" />
-        </ui:VisualElement>
-        <ui:VisualElement name="MainPanel">
-            <ui:VisualElement name="CreateContextPanel" style="align-items: stretch;">
-                <ui:Label text="Create context" style="-unity-font-style: bold; font-size: 14px; justify-content: flex-start; align-items: flex-start;" />
-                <ui:TextField picking-mode="Ignore" label="ContextName" value="filler text" name="ContextNameField" style="justify-content: flex-start; align-items: stretch;" />
-                <ui:VisualElement style="align-items: center;">
-                    <ui:Button text="create" name="CreateNewContextButton" style="flex-grow: 1; width: 25%; margin-top: 5px;" />
+    <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1" style="width: 100%; height: 100%;">
+        <ui:VisualElement style="padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;">
+            <ui:Label text="Project Contexts" style="font-size: 16px; -unity-font-style: bold; margin-bottom: 10px;" />
+            <ui:VisualElement name="SettingsDataExistsPanel" style="align-items: center; display: flex; visibility: visible; overflow: visible; opacity: 1;">
+                <ui:Label text="There is no context data in project for now" style="-unity-text-align: upper-center;" />
+                <ui:Button text="create new" name="CreateNewSettingsDataButton" style="flex-wrap: wrap-reverse; width: auto; align-items: stretch;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="ContextManagerExistsPanel" style="align-items: center; display: flex; visibility: visible; overflow: visible; opacity: 1;">
+                <ui:Label text="You need to assign Project Context Manager to start edit/switch contexts. Chose from project or create one" style="-unity-text-align: upper-center; white-space: normal;" />
+                <uie:ObjectField label="Context Manager" allow-scene-objects="false" name="ContextManagerField" style="overflow: hidden; flex-wrap: nowrap;" />
+                <ui:Button text="create new" name="CreateNewSettingsDataButton" style="flex-wrap: wrap-reverse; width: auto; align-items: stretch;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="MainPanel">
+                <ui:VisualElement name="CreateContextPanel" style="align-items: stretch;">
+                    <ui:Label text="Create context" style="-unity-font-style: bold; font-size: 14px; justify-content: flex-start; align-items: flex-start;" />
+                    <ui:TextField picking-mode="Ignore" label="ContextName" value="filler text" name="ContextNameField" style="justify-content: flex-start; align-items: stretch;" />
+                    <ui:VisualElement style="align-items: center;">
+                        <ui:Button text="create" name="CreateNewContextButton" style="flex-grow: 1; width: 25%; margin-top: 5px;" />
+                    </ui:VisualElement>
+                    <ui:Label text="There is already one context with this name, please, use unique name!" name="SameContextNameErrorLabel" style="-unity-text-align: upper-left; white-space: normal; color: rgb(255, 255, 255); -unity-font-style: normal; border-left-width: 3px; border-right-width: 3px; border-top-width: 3px; border-bottom-width: 3px; border-left-color: rgb(255, 0, 0); border-right-color: rgb(255, 0, 0); border-top-color: rgb(255, 0, 0); border-bottom-color: rgb(255, 0, 0); border-top-left-radius: 5px; border-bottom-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; background-color: rgb(103, 23, 23); margin-top: 5px; margin-bottom: 0;" />
                 </ui:VisualElement>
-                <ui:Label text="There is already one context with this name, please, use unique name!" name="SameContextNameErrorLabel" style="-unity-text-align: upper-left; white-space: normal; color: rgb(255, 255, 255); -unity-font-style: normal; border-left-width: 3px; border-right-width: 3px; border-top-width: 3px; border-bottom-width: 3px; border-left-color: rgb(255, 0, 0); border-right-color: rgb(255, 0, 0); border-top-color: rgb(255, 0, 0); border-bottom-color: rgb(255, 0, 0); border-top-left-radius: 5px; border-bottom-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; background-color: rgb(103, 23, 23); margin-top: 5px; margin-bottom: 0;" />
+                <ui:VisualElement style="flex-direction: column; justify-content: flex-end; align-items: flex-end; margin-top: 10px; margin-bottom: 5px;">
+                    <ui:Button text="update" display-tooltip-when-elided="true" name="UpdateContextListButton" style="flex-grow: 0;" />
+                </ui:VisualElement>
+                <ui:ScrollView name="ContextsList" style="height: auto; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; margin-top: 0; max-height: 150px; min-height: 0; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; background-color: rgb(41, 41, 41);" />
             </ui:VisualElement>
-            <ui:VisualElement style="flex-direction: column; justify-content: flex-end; align-items: flex-end; margin-top: 10px; margin-bottom: 5px;">
-                <ui:Button text="update" display-tooltip-when-elided="true" name="UpdateContextListButton" style="flex-grow: 0;" />
-            </ui:VisualElement>
-            <ui:ScrollView name="ContextsList" style="height: auto; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; margin-top: 0; max-height: 150px; min-height: 0; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; background-color: rgb(41, 41, 41);" />
         </ui:VisualElement>
-    </ui:VisualElement>
-    <ui:VisualElement name="ContextPanel" style="padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; background-color: rgb(46, 46, 46); margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 0;">
-        <ui:VisualElement style="flex-direction: row; justify-content: flex-end; align-items: stretch; -unity-text-align: upper-left; height: 26px; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-bottom: 10px;">
-            <ui:VisualElement style="flex-direction: row; flex-grow: 1;">
-                <ui:Label text="Context Name" name="ContextNameLabel" style="font-size: 16px; -unity-font-style: bold; margin-bottom: 10px; flex-grow: 0; justify-content: flex-start; align-items: flex-start; -unity-text-align: upper-left; margin-right: 20px; min-width: auto; width: 130px;" />
-                <ui:Button text="Switch" display-tooltip-when-elided="true" name="SwitchContextButton" class="green-button green-borders" />
-                <ui:Button text="Delete" display-tooltip-when-elided="true" name="DeleteContextButton" class="red-button" style="-unity-font-style: bold;" />
+        <ui:VisualElement name="ContextPanel" style="padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; background-color: rgb(46, 46, 46); margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 0;">
+            <ui:VisualElement style="flex-direction: row; justify-content: flex-end; align-items: stretch; -unity-text-align: upper-left; height: 26px; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-bottom: 10px;">
+                <ui:VisualElement style="flex-direction: row; flex-grow: 1;">
+                    <ui:Label text="Context Name" name="ContextNameLabel" style="font-size: 16px; -unity-font-style: bold; margin-bottom: 10px; flex-grow: 0; justify-content: flex-start; align-items: flex-start; -unity-text-align: upper-left; margin-right: 20px; min-width: auto; width: 130px;" />
+                    <ui:Button text="Switch" display-tooltip-when-elided="true" name="SwitchContextButton" class="green-button green-borders" />
+                    <ui:Button text="Delete" display-tooltip-when-elided="true" name="DeleteContextButton" class="red-button" style="-unity-font-style: bold;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="HandlerSelectorContainer" style="max-height: 100%; flex-grow: 1; max-width: none; align-items: auto; justify-content: center;" />
+                <ui:Button text="add handler" name="CreateHandlerButton" style="flex-grow: 0;" />
             </ui:VisualElement>
-            <ui:VisualElement name="HandlerSelectorContainer" style="max-height: 100%; flex-grow: 1; max-width: none; align-items: auto; justify-content: center;" />
-            <ui:Button text="add handler" name="CreateHandlerButton" style="flex-grow: 0;" />
+            <ui:VisualElement name="ContextHandlersList" style="flex-grow: 1;" />
         </ui:VisualElement>
-        <ui:VisualElement name="ContextHandlersList" style="flex-grow: 1;" />
-    </ui:VisualElement>
+    </ui:ScrollView>
 </ui:UXML>
