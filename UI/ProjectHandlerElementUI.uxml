@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="ProjectContextWindowUSS.uss" />
+    <ui:VisualElement style="align-items: flex-start; flex-direction: row; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-bottom: 10px;">
+        <ui:VisualElement style="flex-grow: 1; flex-direction: column; background-color: rgb(58, 58, 58); padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; margin-right: 5px;">
+            <ui:Label text="Handler Title" display-tooltip-when-elided="true" name="HandlerTitle" style="margin-bottom: 5px; -unity-font-style: bold; font-size: 14px;" />
+            <ui:IMGUIContainer name="HandlerSerializeContainer" style="flex-grow: 1;" />
+        </ui:VisualElement>
+        <ui:Button text="x" display-tooltip-when-elided="true" name="HandlerDeleteButton" class="red-button" style="align-items: stretch; width: auto;" />
+    </ui:VisualElement>
+</ui:UXML>
