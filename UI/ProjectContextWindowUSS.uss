@@ -1,0 +1,45 @@
+.red-button {
+    background-color: rgb(103, 23, 23);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-color: rgb(255, 0, 0);
+    border-right-color: rgb(255, 0, 0);
+    border-top-color: rgb(255, 0, 0);
+    border-bottom-color: rgb(255, 0, 0);
+}
+
+.red-button:hover {
+    background-color: rgb(188, 70, 70);
+}
+
+.red-button:active {
+    background-color: rgb(56, 56, 56);
+}
+
+.green-button {
+    background-color: rgb(36, 103, 23);
+    -unity-font-style: bold;
+}
+
+.green-button:hover {
+    background-color: rgb(96, 188, 70);
+    -unity-font-style: bold;
+}
+
+.green-button:active {
+    background-color: rgb(56, 56, 56);
+    -unity-font-style: bold;
+}
+
+.green-borders {
+    border-left-color: rgb(31, 255, 0);
+    border-right-color: rgb(31, 255, 0);
+    border-top-color: rgb(31, 255, 0);
+    border-bottom-color: rgb(31, 255, 0);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+}
